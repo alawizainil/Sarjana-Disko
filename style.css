@@ -1,0 +1,868 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #241965;
+  overflow-x: hidden; 
+}
+
+/* Header Styling */
+header {
+  position: fixed;
+  top: 0;
+  font-size: larger;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5% 3%;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+header nav {
+  background-color: white;
+  border-radius: 1.5em;
+  padding: 0.6% 3%;
+  display: flex;
+  gap: 13%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #241965;
+  font-weight: normal;
+  transition: color 0.3s ease, font-weight 0.3s ease; /* Tambahkan transisi */
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #F39404;
+}
+
+.nav-link:hover {
+  color: #F39404;
+  transform: scale(1.1);
+}
+
+.logo-link {
+  display: inline-block;
+  margin-right: auto;
+  
+}
+
+.logo-image {
+  width: 15%;
+  height: auto;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 20px #F19626);
+  transition: all 0.3s ease;
+}
+
+.logo-image:hover{
+  transform: scale(1.1);
+}
+
+/* Section Styling */
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Home Section */
+#home {
+  background-color: #f9f9f9;
+  padding-top: 3%;
+  background-image: url("Assets/HOME\ PAGE_BG.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* To position the gradient */
+}
+
+.groove-text-image {
+  width: 45%; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Adjust spacing below the image */
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); /* Gradient overlay with 50% opacity at the top */
+  z-index: 1; /* Place the gradient above the background image, but below other content */
+}
+
+#home .center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content vertically */
+  z-index: 100;
+}
+
+.circle {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 2% auto;
+  animation: rotate 10s linear infinite; 
+  animation-play-state: running; /* Initially set animation to running */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#home .circle {
+  width: 20%;
+  height: auto;
+  border-radius: 50%;
+  background-color: transparent;
+  overflow: hidden; /* Hide excess image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#home .circle img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Maintain aspect ratio and cover the circle */
+  z-index: 100;
+}
+
+#home h1 {
+  font-size: 3em;
+  font-weight: bold;
+  color: #F19626;
+}
+
+.watch-mv-button {
+  display: inline-block;
+  background-color: white;
+  border-radius: 1.5em;
+  padding: 0.5% 2%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #241965;
+  text-decoration: none;
+  box-shadow: 0 6px 0px rgba(36, 25, 101, 1);
+  transition: 0.3s ease;
+  border: 0.1em solid #241965;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added transitions */
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.watch-mv-button:hover {
+  background-color: #241965;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0px rgb(0, 0, 0);
+  transform: translateY(-10px) scale(1.01); /* Move up slightly and scale up */
+}
+
+/* About Section */
+#about {
+  background-color: transparent;
+  background-image: url("Assets/BG\ ABOUT.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.left, .right {
+  width: 48%;
+}
+
+/* ... other styles ... */
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  gap: 2%;
+  position: relative; /* Add this to position the polaroids */
+}
+
+.polaroid-1 {
+  width: 100%;
+  height: auto; 
+  border-radius: 1.5em;
+  margin-left: 1%;
+  transform: rotate(-3deg);
+  overflow: hidden; 
+  position: relative; /* Add this to position the polaroids */
+  z-index: 2; /* Ensure this polaroid is on top */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added transitions */
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.polaroid-1:hover{
+  transform: translateY(-10px) scale(1.1) rotate(2deg); /* Move up slightly and scale up */
+  z-index: 3
+}
+
+.polaroid-2 {
+  width: 80%;
+  height: auto;
+  margin-left: 10%; /* Position slightly to the left of polaroid-1 */
+  transform: rotate(2deg); /* Rotate in the opposite direction */
+  overflow: hidden;
+  position: absolute; /* Position this polaroid absolutely */
+  z-index: 1; /* Ensure this polaroid is behind polaroid-1 */
+}
+
+.polaroid-3 {
+  width: 80%;
+  height: auto;
+  margin-left: 11%; /* Position slightly to the left of polaroid-1 */
+  transform: rotate(-1deg); /* Rotate in the opposite direction */
+  overflow: hidden;
+  position: absolute; /* Position this polaroid absolutely */
+  top: 35%; /* Adjust top and left position as needed */
+  z-index: 1; /* Ensure this polaroid is behind polaroid-1 */
+}
+
+.logo-about {
+  width: 35%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 1.5em;
+  margin-left: 27%;
+  filter: drop-shadow(0px 0px 20px #F19626);
+  overflow: hidden; /* Hide excess image */
+}
+
+.logo-about img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the box */
+}
+
+.description { /* New class for the band description */
+  color: white;
+  font-size: 1.2em; /* Adjust font size as needed */
+  background-color: #241965;
+  padding: 3%; /* Adjust padding as needed */ 
+  border-radius: 1.5em; /* Adjust border-radius as needed */
+  margin-top: 5%; /* Optional: Add spacing above the description */
+  margin-right: 10%;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  text-align: justify;
+}
+
+.highlight { /* New class for highlighting text */
+  color: #F39404; /* Use your desired color */
+  font-weight: bold;
+}
+
+.caption span {
+  color: #F19626;
+}
+
+.card-container {
+  display: flex;
+  align-items: center; /* Vertically align the card and button */
+  gap: 20px; /* Adjust spacing between card and button */
+  margin: 0 auto; /* Center the container */
+  max-width: 80%; /* Optional: Limit the container width */
+}
+
+#about-song .rounded-rectangle-card {
+  background-color: #F19626;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 90%;
+  height: 700px; /* Set a fixed height */
+  width: 1500px;;
+  overflow-y: auto; /* Make the lyrics scrollable */
+  position: relative;
+  padding-top: 70px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#about-song .header-card {
+  display: flex;
+  justify-content: space-between; /* Distribute space between title and button */
+  align-items: center;
+  background-color: #241965;
+  border-radius: 5.5em;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 90%;
+  height: 75px; /* Set a fixed height */
+  width: 1500px;;
+  position: relative;
+  padding-top: 0px;
+  margin-bottom: 20px; /* Adjust the value as needed */
+  padding: 10px 20px; /* Adjust padding as needed */
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#about-song .header-card h2 {
+  font-size: 2em;
+  color: #F19626;
+}
+
+#about-song .header-card img {
+  width: 40px; /* Adjust this value as needed */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#about-song .header-card img:hover {
+  scale: 1.1;
+}
+
+#about-song .rounded-rectangle-card p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25em;
+  line-height: 1.5;
+  text-align: left;
+  margin-left: 100px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  /* Remove any height or overflow properties from here */
+}
+
+#about-song .empty-card {
+  /* ... existing styles ... */
+  background-color: #F19626; /* Example color, match it to your lyrics card */
+  /* Add any other styles to match the appearance of the lyrics card */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#about-song .empty-card p {
+  text-align: justify;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+#about-mv .rounded-rectangle-card {
+  background-color: #241965;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 90%;
+  height: 700px; /* Set a fixed height */
+  width: 1500px;;
+  overflow-y: auto; /* Make the lyrics scrollable */
+  position: relative;
+  padding-top: 70px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+#about-mv .header-card {
+  display: flex;
+  justify-content: space-between; /* Distribute space between title and button */
+  align-items: center;
+  background-color: #241965;
+  border-radius: 5.5em;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 90%;
+  height: 75px; /* Set a fixed height */
+  width: 1500px;;
+  position: relative;
+  padding-top: 0px;
+  margin-bottom: 20px; /* Adjust the value as needed */
+  padding: 10px 20px; /* Adjust padding as needed */
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#about-mv .header-card h2 {
+  font-size: 2em;
+  color: #F19626;
+}
+
+#about-mv .header-card img {
+  width: 40px; /* Adjust this value as needed */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#about-mv .header-card img:hover {
+  scale: 1.1;
+}
+
+#about-mv .rounded-rectangle-card img {
+  width: 1200px;
+  height: auto;
+  margin-top: -70px;
+  margin-left: 5px;
+  /* Remove any height or overflow properties from here */
+}
+
+#about-mv .empty-card {
+  /* ... existing styles ... */
+  background-color: #241965; /* Example color, match it to your lyrics card */
+  /* Add any other styles to match the appearance of the lyrics card */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#about-mv .empty-card img {
+  width: 1200px;
+  height: auto;
+  margin-top: -70px;
+  margin-left: 5px;
+}
+
+/* Ensure about-content sections are hidden by default */
+.about-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 2%;
+  margin-top: 5%;
+}
+
+/* Make the active section visible */
+.about-content.active {
+  display: block;
+  opacity: 100%;
+}
+
+#about-members .member-grid { /* Added parent selector for better specificity */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-gap: 2%; /* Spacing between grid items */
+}
+
+#about-members .member-grid img { 
+  width: 95%;
+  height: auto; 
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added transitions */
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+#about-members.active .member-grid img { /* Styles when the section is active */
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+#about-members:not(.active) .member-grid img { /* Styles when the section is NOT active */
+  opacity: 0;
+  transform: translateY(20px); 
+}
+
+#about-members .member-grid img:hover {
+  transform: translateY(-10px) scale(1.01); /* Move up slightly and scale up */
+}
+
+/* Submenu for About Section */
+.submenu {
+  position: fixed;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 1.5em;
+  padding: 0.6% 3%;
+  display: flex;
+  font-size: larger;
+  gap: 13%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.submenu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.submenu.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(-50px);
+}
+
+.submenu .submenu-link {
+  text-decoration: none;
+  color: #241965;
+  font-weight: normal;
+  transition: 0.3s;
+}
+
+.submenu .submenu-link.active {
+  font-weight: bold;
+  color: #F39404;
+}
+
+.submenu .submenu-link:hover {
+  color: #F39404;;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* Contact Section */
+#contact {
+  background-color: transparent;
+  background-image: url("Assets/BG\ CONTACT.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 0px;
+  text-align: center;
+}
+
+.find-us-image {
+  width: 33%; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 0%; /* Adjust spacing below the image */
+  margin-top: -10%;
+}
+
+.social-media-container {
+  position: relative;
+  height: 35%; /* Adjust the height as needed */
+  gap: 40%; /* Increased gap between the heading and buttons */
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons horizontally */
+  justify-content: space-between; /* Distribute space between buttons */
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center; /* Center image and text vertically */
+  background-color: white;
+  border-radius: 1.5em;
+  padding: 0.5em 1.5em; /* Adjust padding for consistent spacing */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 2em; /* Scale font size for responsiveness */
+  color: #F19626;
+  text-decoration: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  margin: -1.5em 0; /* Add consistent spacing between buttons */
+  white-space: nowrap;
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.social-button img {
+  width: auto; /* Scale width automatically */
+  height: 1.5em; /* Match height with text for consistent alignment */
+  margin-right: 0.5em; /* Space between image and text */
+}
+ 
+.social-button:hover{
+  background-color: #e5e5e5;
+  transform: translateY(-6px) scale(1.5);
+}
+
+/* Individual button styles */
+.social-button.instagram {
+  transform: rotate(-3deg);
+  color: #653893;
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.social-button.tiktok {
+  transform: rotate(5deg);
+  color: #B73D6E; /* Example: Different text color */
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.social-button.youtube {
+  transform: rotate(-2deg);
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.social-button.instagram:hover {
+  transform: rotate(3deg) scale(1.2);
+}
+
+.social-button.tiktok:hover {
+  transform: rotate(-5deg) scale(1.2);
+}
+
+.social-button.youtube:hover {
+  transform: rotate(2deg) scale(1.2);
+}
+
+.mascot-link {
+  position: absolute; 
+  /* Add specific positioning for each mascot */
+}
+
+.mascot-image {
+  width: 110%; /* Adjust size as needed */
+  height: auto;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added transitions */
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.mascot-image:hover{
+  transform: translateY(-10px) scale(1.01); /* Move up slightly and scale up */
+}
+
+.mascot-1 { /* Target the first mascot link */
+  bottom: -60%;
+  right: 70%;
+  transform: rotate(-10deg);
+}
+
+.mascot-2 { /* More specific selector for the second mascot */
+  bottom: -93%;
+  left: 70%; /* Adjust this value to move it horizontally */
+}
+
+.floating-mascot img { /* Target the image within the mascot link */
+  width: 30%;  /* Adjust the width as needed */
+  height: auto;  /* Maintain aspect ratio */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Added transitions */
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.floating-mascot img:hover{
+  transform: translateY(-10px) scale(1.01); /* Move up slightly and scale up */
+}
+
+.floating-mascot {
+  position: absolute; 
+  z-index: 999;
+}
+
+.mascot-3 {
+  width: 70%;
+  height: auto;
+  top: 170%; /* Use percentage values for vertical positioning */
+  left: 83%; /* Use percentage values for horizontal positioning */
+}
+
+.mascot-4 {
+  width: 60%;
+  height: auto;
+  bottom: -53.7%;
+  right: 2.8%;
+}
+
+/* EASTER EGG */
+#easter-egg {
+  background-color: transparent;
+  background-image: url("Assets/BG\ ABOUT.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* To allow positioning of elements within */
+}
+
+.easter-egg-content {
+  /* This will act as a container for all elements */
+  width: 100%; /* Adjust as needed */
+  max-width: 73%; /* Optional max-width */
+  margin: 0 auto; /* Center the content */
+  position: relative; /* Allow positioning of child elements */
+}
+
+.easter-egg-text {
+  /* Styles for the Easter Egg text image */
+  display: block; /* Ensures the image is treated as a block-level element */
+  margin-left: auto; /* Set left margin to auto */
+  margin-right: auto; /* Set right margin to auto */
+  width: 100%; /* Adjust as needed */
+  max-width: 60%; /* Optional max-width */
+  margin-top: -32%;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Scale up slightly */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.desc {
+  /* Styles for the description boxes */
+  position: absolute;
+  background-color: #241965;
+  font-size: large;
+  color: white;
+  text-align: justify;
+  padding: 2%;
+  border-radius: 1em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  width: 60%; /* Changed width to 40% */
+  
+}
+
+.description-1 {
+  top: -1.5em; 
+  left: 15%;
+}
+
+.description-2 {
+  top: 12em;
+  right: 15%;
+}
+
+.mascot {
+  /* Styles for the mascot images */
+  position: absolute; /* Allow free positioning */
+  width: 44%; /* Adjust as needed */
+  height: auto;
+  transition: all 0.3s ease; /* Add a transition for all animatable properties */
+}
+
+.beep {
+  bottom: -30em; /* Adjust bottom and left position as needed */
+  left: 62em;
+}
+
+.bally {
+  bottom: -17em; /* Adjust bottom and right position as needed */
+  right: 60em;
+  transform: rotate(-5deg);
+}
+
+.mascot:hover{
+  transform: translateY(-10px) scale(1.1) rotate(5deg);
+}
+
+.text-image {
+  position: absolute; /* Allow free positioning */
+  width: 30%; /* Adjust as needed */
+  height: auto;
+}
+
+.text-image-1 {
+  top: -7em; /* Adjust vertical position */
+  left: 11.2em; /* Adjust horizontal position */
+}
+
+.text-image-2 {
+  width: 37%;
+  height: auto;
+  bottom: -13em; /* Adjust vertical position */
+  right: 10.9em; /* Adjust horizontal position */
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+      font-size: 2rem;
+  }
+  .description {
+      font-size: 1.1rem;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  header {
+      padding: 10px 20px;
+  }
+
+  header nav {
+      gap: 20px;
+      padding: 5px 20px;
+  }
+
+  #home .circle {
+      width: 150px;
+      height: 150px;
+  }
+
+  #home h1 {
+      font-size: 2em;
+  }
+
+  .watch-mv-button {
+    font-size: larger;
+    padding: 8px 30px;
+  }
+
+  .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+
+  .left, .right {
+      width: 100%;
+  }
+
+  .placeholder-box.small {
+      width: 75%;
+  }
+
+  .submenu {
+      top: 80px;
+      padding: 5px 20px;
+      gap: 20px;
+  }
+
+  #contact .social-box {
+      width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    transform: scale(0.8); /* Shrink the desktop layout */
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 768px) {
+  #home::before {
+    background-size: contain; /* Scale down for smaller screens */
+    opacity: 0.7; /* Increase opacity for readability */
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
